@@ -9,7 +9,7 @@
     <ul>
         {% for guitar in guitar_list %}
             <li>
-                {{ guitar.model_name }} {{ guitar.serial_number }}
+                {{ guitar.model_name }} {{ guitar.serial_number }} -<a href="guitar/{{  guitar.pk  }}"> See details  </a>
             </li>
         {% endfor %}
     </ul>
