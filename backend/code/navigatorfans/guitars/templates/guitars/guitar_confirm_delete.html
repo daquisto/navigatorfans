@@ -1,0 +1,10 @@
+{% extends 'guitars/base.html' %}
+{% block content %}
+
+<h3>do you wish to delete {{ guitar }}?</h3>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="confirm">
+</form>
+
+{% endblock content %}

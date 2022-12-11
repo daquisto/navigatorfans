@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Guitar List</title>
-</head>
-<body>
+{% extends 'guitars/base.html' %}
+
+{% block content %}
 
     <ul>
         {% for guitar in guitar_list %}
             <li>
-                {{ guitar.model_name }} {{ guitar.serial_number }} -<a href="guitar/{{  guitar.pk  }}"> See details  </a>
+                {{ guitar.pk }} - {{ guitar.model_name }} {{ guitar.serial_number }} -<a href="guitar/{{  guitar.pk  }}"> See details  </a>
             </li>
         {% endfor %}
     </ul>
 
-
-</body>
-</html>
+    <a href="/guitar/create">Create new record</a>
+{% endblock content %}
