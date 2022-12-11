@@ -1,30 +1,28 @@
-from django.views import generic, View
+from django.http import HttpResponse
+from django.views import View
 
 # from .forms  import GuitarForm
 from .models import Guitar
 
 
-class BaseView(View):
-    model = Guitar
-    fields = '__all__'
-    success_url = '/'
-
-
-class GuitarListView(BaseView, generic.ListView):
+class GuitarListView(View):
     """ listview """
+    def get(self, request):
+
+        return HttpResponse("Hello World!")
 
 
-class GuitarDetailView(BaseView, generic.DetailView):
+class GuitarDetailView(View):
     """ detailview """
 
 
-class GuitarUpdateView(BaseView, generic.UpdateView):
+class GuitarUpdateView(View):
     """ updateview """
 
 
-class GuitarCreateView(BaseView, generic.CreateView):
+class GuitarCreateView(View):
     """ createview """
 
 
-class GuitarDeleteView(BaseView, generic.DeleteView):
+class GuitarDeleteView(View):
     """ deleteview """
