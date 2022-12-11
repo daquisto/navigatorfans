@@ -1,22 +1,30 @@
-from django.views import generic
+from django.views import generic, View
 
-from .forms  import GuitarForm
+# from .forms  import GuitarForm
 from .models import Guitar
 
 
-class GuitarListView(generic.ListView):
+class BaseView(View):
     model = Guitar
+    fields = '__all__'
+    success_url = '/'
 
 
-class GuitarDetailView(generic.DetailView):
-    model = Guitar
+class GuitarListView(BaseView, generic.ListView):
+    """ listview """
 
 
-class GuitarEditView(generic.edit.FormView):
-    template_name = 'guitars/guitar_edit.html'
-    form_class = GuitarForm
+class GuitarDetailView(BaseView, generic.DetailView):
+    """ detailview """
 
 
+class GuitarUpdateView(BaseView, generic.UpdateView):
+    """ updateview """
 
 
+class GuitarCreateView(BaseView, generic.CreateView):
+    """ createview """
 
+
+class GuitarDeleteView(BaseView, generic.DeleteView):
+    """ deleteview """

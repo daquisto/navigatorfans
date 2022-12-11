@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Guitar Edit</title>
-</head>
-<body>
-  <h1>Guitar Edit</h1>
+{% extends 'guitars/base.html' %}
+{% block content %}
+<style>
+  textarea {
+    background: red;
+
+  }
+
+  .main-title {
+    font-family: verdana;
+    color: magenta;
+  }
+</style>
+
+  <h1 class="main-title">Guitar Details</h1>
     {{  guitar.pk  }} <br>
     {{  guitar.model_name  }} <br>
     {{  guitar.serial_number }} <br>
-  <a href="/guitar_edit/{{guitar.pk}}">Edit</a>
-</body>
-</html>
+  <a href="/guitar/{{ guitar.pk }}/edit">Edit</a>
+{% endblock content %}
