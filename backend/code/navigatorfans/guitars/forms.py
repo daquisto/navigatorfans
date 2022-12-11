@@ -7,4 +7,3 @@ class GuitarForm(ModelForm):
     class Meta:
         model = Guitar
         fields = '__all__'
-

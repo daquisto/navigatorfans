@@ -1,0 +1,52 @@
+{% extends 'guitars/base.html' %}
+{% block content %}
+
+<style>
+  textarea {
+    background: red;
+
+  }
+
+   div {
+        border: 1px solid green;
+        }
+
+   label {
+    width: 200px;
+
+   }
+
+  .main-title {
+    font-family: verdana;
+    color: magenta;
+  }
+
+
+
+
+
+</style>
+
+    <h1 class="main-title">Guitar Edit</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <input type="submit" value="Submit">
+    </form>
+
+    <button onclick="location.href = '/'">Cancel</button>
+    <button style="background:red; color:white;" onclick="confirmDelete('{{guitar.pk}}')">Delete</button>
+
+
+    <script>
+
+        function confirmDelete(recordId){
+            const answer = confirm("Are you sure you want to delete this record?")
+            if (answer === true) {
+                location.href = `/guitar/${recordId}/delete`
+                }
+        }
+
+    </script>
+{% endblock content %}
